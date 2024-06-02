@@ -1,13 +1,17 @@
+import { lazy, Suspense } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import { ROUTES } from "./path";
-import SignInPage from "../pages/SignInPage";
-import SignUpPage from "../pages/SignUpPage";
-import WeatherPage from "../pages/WeatherPage";
-import ErrorPage from "../pages/ErrorPage";
-import RegisterPage from "../pages/Registerpage";
+import Loading from "../components/Loading/Loading";
+
+// Lazy load the page components
+const SignInPage = lazy(() => import("../pages/SignInPage"));
+const SignUpPage = lazy(() => import("../pages/SignUpPage"));
+const WeatherPage = lazy(() => import("../pages/WeatherPage"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const RegisterPage = lazy(() => import("../pages/Registerpage"));
 
 export default function Router() {
-  return useRoutes([
+  const routes = useRoutes([
     { path: ROUTES.Register, element: <RegisterPage /> },
     { path: ROUTES.SignIn, element: <SignInPage /> },
     { path: ROUTES.SignUp, element: <SignUpPage /> },
@@ -15,4 +19,6 @@ export default function Router() {
     { path: ROUTES.error, element: <ErrorPage /> },
     { path: "*", element: <Navigate to={ROUTES.error} replace /> },
   ]);
+
+  return <Suspense fallback={<Loading />}>{routes}</Suspense>;
 }
