@@ -4,5 +4,4 @@ export const ROUTES = {
   SignUp: "/sign-up",
   WetherCityPage: "/WetherCityPage",
   error:"/404"
-  
 };
