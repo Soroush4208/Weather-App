@@ -9,7 +9,7 @@ function Register() {
     <div className="flex flex-col justify-center items-center align-middle h-[100vh]">
       <div className="glitch-wrapper cursor-pointer">
         <button
-          onClick={() => navigate(ROUTES.SignIn)}
+          onClick={() => navigate(ROUTES.login)}
           className="glitch text-3xl sm:text-[80px]"
           data-glitch="Go to Weather app"
         >
