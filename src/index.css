@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-    font-family: vazir;
-    src: url(../src/assets/fonts/vazir-font-v16.1.0/vazir-font-v16.1.0/Vazir-Medium.woff);
+  font-family: vazir;
+  src: url(../src/assets/fonts/vazir-font-v16.1.0/vazir-font-v16.1.0/Vazir-Medium.woff);
+}
+@font-face {
+  font-family: kalam;
+  src: url(../src/assets/fonts/Kalam/Kalam-Bold.ttf);
+  src: url(../src/assets/fonts/Kalam/Kalam-Light.ttf);
+  src: url(../src/assets/fonts/Kalam/Kalam-Regular.ttf);
 }
 
-.font-vazir{
-    font-family: vazir;
+.font-vazir {
+  font-family: vazir;
+}
+.font-kalam {
+  font-family: vazir;
 }
