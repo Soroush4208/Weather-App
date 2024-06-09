@@ -12,7 +12,9 @@
   src: url(../src/assets/fonts/Kalam/Kalam-Light.ttf);
   src: url(../src/assets/fonts/Kalam/Kalam-Regular.ttf);
 }
-
+body{
+  background-color: #f3f7fb !important;
+}
 .font-vazir {
   font-family: vazir;
 }
