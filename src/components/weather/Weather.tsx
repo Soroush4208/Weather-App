@@ -183,7 +183,7 @@ const WeatherCity = () => {
                     Temperature: {item.main?.temp}°C
                   </p>
                   <p className="text-nowrap">
-                    Conditions: {item.weather[0]?.description}
+                    Conditions : {item.weather[0]?.description}
                   </p>
                   <Button
                     variant="contained"
