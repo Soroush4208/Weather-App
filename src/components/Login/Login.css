@@ -22,8 +22,8 @@
 .container:before {
   content: "";
   position: absolute;
-  height: 2000px;
-  width: 2000px;
+  height: 1900px;
+  width: 1900px;
   right: 20%;
   transform: translateY(-40%);
   background-image: url(../../assets/gif/Animated-Weather-Icons.gif);
@@ -37,6 +37,6 @@
   filter: blur(10px);
 }
 .container.sign-up-mode:before {
-  transform: translate(120%, -40%);
+  transform: translate(130%, -40%);
   right: 50%;
 }

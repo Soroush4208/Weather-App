@@ -4,41 +4,76 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.bg-box-history{
+.bg-box-history {
   background-image: url(../../assets/gif/weather.gif);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
-@keyframes spin {
-  to {
-      transform: rotate(360deg);
-  }
-}
-.animateSpin {
-  animation: spin 4s linear infinite;
-}
 
+.history-color {
+  animation: history-color 5s linear infinite;
+}
 
 /* width */
 ::-webkit-scrollbar {
-    width: 0.1rem !important;
+  width: 0.1rem !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cccccc;
+  border-radius: 1rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #646363;
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4d685d;
+}
+
+@keyframes history-color {
+  0% {
+    color: rgb(219, 70, 70);
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #cccccc;
-    border-radius: 1rem;
+  10% {
+    color: rgb(141, 120, 52);
   }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #646363;
-    border-radius: 1rem;
+
+  20% {
+    color: rgb(54, 128, 97);
   }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #4d685d;
+
+  30% {
+    color: rgb(42, 190, 196);
   }
-  
+  40% {
+    color: rgb(236, 183, 7);
+  }
+  50% {
+    color: rgb(0, 255, 42);
+  }
+  60% {
+    color: rgb(27, 230, 169);
+  }
+
+  70% {
+    color: rgb(255, 145, 1);
+  }
+  80% {
+    color: rgb(9, 39, 204);
+  }
+
+  90% {
+    color: rgb(69, 36, 187);
+  }
+
+  100% {
+    color: rgb(207, 12, 71);
+  }
+}

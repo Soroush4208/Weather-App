@@ -20,7 +20,7 @@ function Login() {
   }
 
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen h-screen overflow-hidden login-page">
       <div className="flex flex-col justify-center sm:flex-row sm:justify-between sm:px-40 sm:py-0 py-20 items-center ">
         <SignInPage />
         <SignUpPage />
