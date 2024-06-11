@@ -2,7 +2,7 @@ import { Button, CircularProgress, TextField } from "@mui/material";
 import "./Weather.css";
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
-import { BASE_URL } from "../../constant/const";
+import { BASE_URL, api } from "../../constant/const";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logout from "../../assets/svgs/logout.svg";
@@ -16,10 +16,6 @@ const WeatherCity = () => {
   const [error, setError] = useState(false);
   const [history, setHistory] = useState([]);
   const navigate = useNavigate();
-
-  const api = {
-    key: "c5420726342033d00894faa5acc4f0ec",
-  };
 
   const getApiWeather = async (e) => {
     e.preventDefault();

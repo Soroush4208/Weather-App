@@ -61,7 +61,7 @@ const SignUp = () => {
           value={username}
           error={error}
           onChange={(e) => setUsername(e.target.value)}
-          required // افزودن اعتبارسنجی
+          required
         />
         <TextField
           id="outlined-password"
@@ -71,7 +71,7 @@ const SignUp = () => {
           value={password}
           error={error}
           onChange={(e) => setPassword(e.target.value)}
-          required // افزودن اعتبارسنجی
+          required
         />
         <Button
           type="submit"
