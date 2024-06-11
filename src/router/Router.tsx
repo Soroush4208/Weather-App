@@ -3,7 +3,6 @@ import { Navigate, useRoutes } from "react-router-dom";
 import { ROUTES } from "./path";
 import Loading from "../components/Loading/Loading";
 
-// Lazy load the page components
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const WeatherPage = lazy(() => import("../pages/WeatherPage"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
