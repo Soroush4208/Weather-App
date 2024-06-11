@@ -6,7 +6,6 @@ import { BASE_URL } from "../../constant/const";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logout from "../../assets/svgs/logout.svg";
-import History from "../../assets/gif/hourglass.gif";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/path";
 
@@ -14,7 +13,7 @@ const WeatherCity = () => {
   const [searchCity, setSearchCity] = useState("");
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   const [history, setHistory] = useState([]);
   const navigate = useNavigate();
 
@@ -25,7 +24,6 @@ const WeatherCity = () => {
   const getApiWeather = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
     setLocation(null);
     setSearchCity("");
     try {
@@ -34,8 +32,10 @@ const WeatherCity = () => {
       );
       setLocation(res.data);
       toast.success("Weather data fetched successfully!");
+      setError(false);
     } catch (err) {
       toast.error("Error fetching weather data.");
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,6 @@ const WeatherCity = () => {
       }
     } catch (error) {
       toast.error("Error adding to history");
-      console.log(error);
     }
   };
 
@@ -68,14 +67,10 @@ const WeatherCity = () => {
         setHistory(get.data);
       } catch (error) {
         toast.error("Error fetching history data");
-        console.log(error);
       }
     };
     fetchData();
   }, []);
-
-  console.log(location);
-
   const handelLogout = () => {
     toast.success("Logout successful");
     setTimeout(() => {
@@ -83,19 +78,17 @@ const WeatherCity = () => {
     }, 2000);
   };
 
-  async function deleteHandler(id:number) {
+  async function deleteHandler(id: number) {
     try {
       const res: AxiosResponse = await axios.delete(
         `${BASE_URL}/history/${id}`
       );
-      console.log(res);
       setHistory((prev) => {
         return [...prev].filter((item) => item.id !== id);
       });
       toast.success("City deleted from history");
     } catch (error) {
       toast.error("Error deleting city from history");
-      console.log(error);
     }
   }
 
@@ -117,6 +110,7 @@ const WeatherCity = () => {
             label="City"
             variant="outlined"
             type="text"
+            error={error}
             value={searchCity}
             onChange={(e) => setSearchCity(e.target.value)}
             sx={{ backgroundColor: "transparent", width: "85%", m: 1 }}
@@ -138,7 +132,6 @@ const WeatherCity = () => {
       </div>
       <div className="mt-4 flex justify-center ">
         {loading && <CircularProgress />}
-        {error && <p>{error}</p>}
         {location && (
           <div className="w-1/2">
             <div className="flex flex-col gap-3 backdrop-brightness-150 font-kalam text-3xl border rounded-md hover:backdrop-brightness-200 p-4 ">
@@ -165,7 +158,9 @@ const WeatherCity = () => {
       </div>
       <div className="absolute bottom-5 flex justify-center items-center w-screen">
         {history.length === 0 ? (
-          <img src={History} alt="History" className="w-24 animateSpin" />
+          <div className="flex flex-col justify-center items-center gap-3 item font-kalam text-3xl px-5 history-color w-[350px] h-22">
+            𝐓𝐡𝐞𝐫𝐞 𝐢𝐬 𝐧𝐨 𝐡𝐢𝐬𝐭𝐨𝐫𝐲
+          </div>
         ) : (
           <div className="flex gap-4 justify-center items-center w-[90%] overflow-auto scrollbar-hide px-5 ">
             {history.map((item, index) => {
@@ -195,7 +190,7 @@ const WeatherCity = () => {
                     color="error"
                     type="submit"
                     onClick={() => deleteHandler(item.id)}
-                    sx={{width:0.2,mb:2}}
+                    sx={{ width: 0.2, mb: 2 }}
                   >
                     Delete
                   </Button>

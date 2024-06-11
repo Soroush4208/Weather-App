@@ -12,6 +12,7 @@ const SignIn = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const handelCreateUser = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -20,8 +21,10 @@ const SignIn = () => {
       const response = await postUser(userObj);
       if (response) {
         toast.success("Your username has been added");
+        setError(false);
       } else {
         toast.error("This email is already registered");
+        setError(true);
       }
       setUsername("");
       setEmail("");
@@ -32,7 +35,7 @@ const SignIn = () => {
       console.log(error);
     }
   };
-
+  
   return (
     <div className="flex flex-col justify-center h-screen items-start gap-5 w-1/3">
       <div className="w-full flex justify-center">
@@ -53,6 +56,7 @@ const SignIn = () => {
           type="email"
           required
           variant="outlined"
+          error={error}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

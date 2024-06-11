@@ -21,6 +21,7 @@ type UserProps = {
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const submitHandler = async (e: { preventDefault: () => void }) => {
@@ -33,11 +34,13 @@ const SignUp = () => {
       });
       if (res.data.length === 1) {
         toast.success("Login successful");
+        setError(false);
         setTimeout(() => {
           navigate(ROUTES.WetherCityPage);
         }, 2000); // 2 seconds delay
       } else {
         toast.error("Invalid username or password");
+        setError(true);
       }
     } catch (error) {
       alert("An error occurred while trying to sign in");
@@ -56,6 +59,7 @@ const SignUp = () => {
           label="Username"
           variant="outlined"
           value={username}
+          error={error}
           onChange={(e) => setUsername(e.target.value)}
           required // افزودن اعتبارسنجی
         />
@@ -65,6 +69,7 @@ const SignUp = () => {
           variant="outlined"
           type="password"
           value={password}
+          error={error}
           onChange={(e) => setPassword(e.target.value)}
           required // افزودن اعتبارسنجی
         />
