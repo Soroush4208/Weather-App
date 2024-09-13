@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+const WeatherCity = () => {
+  return <div>WeatherCity</div>;
+=======
 import { Button, CircularProgress, TextField } from "@mui/material";
 import "./Weather.css";
 import { useEffect, useState } from "react";
@@ -199,6 +203,7 @@ const WeatherCity = () => {
       <ToastContainer />
     </div>
   );
+>>>>>>> 6a6cb0cd5bb987837cea5be77aa184117ec0b795
 };
 
 export default WeatherCity;

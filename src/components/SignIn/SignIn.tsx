@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+const SignIn = () => {
+  return <div>SignIn</div>;
+=======
 import { Button, TextField } from "@mui/material";
 import GOOGLE from "../../assets/svgs/google.svg";
 import GITHUB from "../../assets/svgs/github.svg";
@@ -112,6 +116,7 @@ const SignIn = () => {
       <ToastContainer />
     </div>
   );
+>>>>>>> 6a6cb0cd5bb987837cea5be77aa184117ec0b795
 };
 
 export default SignIn;
