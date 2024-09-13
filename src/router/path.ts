@@ -1,7 +1,6 @@
 export const ROUTES = {
   Register: "/",
-  SignIn: "/sign-in",
-  SignUp: "/sign-up",
+  login: "/Login",
   WetherCityPage: "/WetherCityPage",
-  error:"/404"
+  error: "/404",
 };
