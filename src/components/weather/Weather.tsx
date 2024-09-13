@@ -1,5 +1,5 @@
-const WeatherPage = () => {
-  return <div>WeatherPage</div>;
+const WeatherCity = () => {
+  return <div>WeatherCity</div>;
 };
 
-export default WeatherPage;
+export default WeatherCity;

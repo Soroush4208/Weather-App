@@ -1,5 +1,7 @@
+import WeatherCity from "../components/weather/Weather";
+
 const WeatherPage = () => {
-  return <div>WeatherPage</div>;
+  return <WeatherCity/>;
 };
 
 export default WeatherPage;
